@@ -12,6 +12,7 @@ nuclei -update-template-dir /dir/nuclei-templates -update-templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://gist.githubusercontent.com/ozuma/fb21ab0f7143579b1f2794f4af746fb2/raw/a4fa934311b8b9ed11fa6136d05565356601e991/blacklist.dat
 masscan -Pn -sS -iL list.txt --rate 150000 -p1234 --open-only --excludefile block.txt --output-format list --output-file 1234.txt
 36789.txt
 awk '{ print $4 ":" $3 }' list.txt > 1.txt
