@@ -57,6 +57,13 @@ nuclei -w self-nuclei-templates/workflow/wordpress.yaml -u https://www.google.co
 nuclei -t self-nuclei-templates/wordpress/  -u https://www.google.com:443 -rl 1000 -c 1000   -retries 1 -stats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-l ip.txt -o asa.txt -wn -s syb -sa -v
+-wn -s syn -sa -v
+-rate 1 -stats -verbose -debug -Pn
+cat ip.txt | sudo  naabu -p 22, 80, 443, 10000-11000 -rate 1 -retries 1 -timeout 500 -s -Pn -sn -pe -debug  -stats -v 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 -elog errors.txt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cat scan .txt | nuclei -stats -t cves -t exposures -t network -t default-logins -t vulnerabilities -t exposed-panels -t file -t iot -o scan.nuclei
